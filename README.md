@@ -1,3 +1,7 @@
+```shell
+#!/usr/bin/env groovy
+println("这是一份关于groovy script的中文文档")
+```
 # 代码注释
 和其他的编程语言一样Groovy脚本的注释有两中
 * // 这是行注释
