@@ -211,10 +211,19 @@ def fn(name="hellojukay") {
 }
 fn()
 ```
-明名参数
+命名参数
 ```groovy
 def fn(String name){
     println(name)
 }
 fn(name="hellojukay")
+```
+可变长度参数
+```groovy
+def fuck(String... names){
+    for(name in names){
+        printf("fuck your %s\n",name)
+    }
+}
+fuck("hello", "World")
 ```
