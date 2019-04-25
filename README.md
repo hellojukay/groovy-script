@@ -1,5 +1,4 @@
-```shell
-#!/usr/bin/env groovy
+```groovy
 println("这是一份关于groovy script的中文文档")
 ```
 # 代码注释
@@ -11,14 +10,14 @@ println("这是一份关于groovy script的中文文档")
 
 # 定义变量
 Groovy是一种动态的编程语言，所以变量可以在脚本里面使用def关键字来定义
-```shell
+```groovy
 def x = "hello world"
 println(x)
 x = 100
 println(x)
 ```
 动态语言，并不是说Groovy没有类型，你也可以在定义变量的时候指定变量类型
-```shell
+```groovy
 Integer x =10
 println(x)
 // 类型不匹配，赋值会报错
@@ -27,7 +26,7 @@ println(x)
 ```
 # 字符串模板
 可以在字符串中直接使用模板替换变量
-```
+```groovy
 def name="hello jukay"
 def age = 18
 def hello = "Hello ${name}" 
@@ -48,7 +47,7 @@ if (age < 18){
 
 # Switch条件达表示
 groovy的case语句如果不break，会一直往下面执行。
-```shell
+```groovy
 def c= 'C'
 switch(c) {
     case 'A':
@@ -64,7 +63,7 @@ switch(c) {
 ```
 
 # 返回一个Boolean类型的值
-```shell
+```groovy
 def check(x){
     if (x > 1000){
         return true
@@ -79,7 +78,7 @@ println(check(1000))
 
 # null与空字符串
 Groovy中null表示不指向任何对于，空字符串表示一个长度为0，不包含任何字符的字符串。一下脚本输出：不相等。
-```shell
+```groovy
 def a = null
 if (a == ""){
     println("相等")
@@ -90,7 +89,7 @@ if (a == ""){
 
 # 安全的操作对象
 如果你要使用 . 来访问对于的属性或者放置，如果对象没有初始化，或者指向了null,那么就会产生空指针一样，我们可以使用?来避免这个问题，如下：
-```shell
+```groovy
 
 class Person{
     def getAge(){
@@ -107,27 +106,27 @@ println(p?.getAge())
 
 # 打印日志
 使用println函数来打印日志，一般会结合使用字符串模板，如下：
-```shell
+```groovy
 def age=18
 println("user age=${age}")
 ```
 
 # 使用列表
 初始化一个列表
-```shell
+```groovy
 def list = [1,2,3,4,'5']
 // 定义一个空的列表
 def empty_list = []
 ```
 遍历一个列表
-```shell
+```groovy
 def list = [1,2,3,4]
 for(i in list){
     println(i)
 }
 ```
 使用索引访问列表中的数据，并且修改他
-```shell
+```groovy
 println(list[0])
 list[0] = "hello world"
 for(i in list){
@@ -135,7 +134,7 @@ for(i in list){
 }
 ```
 删除和添加列表中的数据
-```shell
+```groovy
 list.add("hellojukay")
 for(i in list){
     println(i)
@@ -148,13 +147,13 @@ for(i in list){
 
 # 使用Map结构
 初始化一个map
-```shell
+```groovy
 def map = ['name':"Hellojukay", 'age':18]
 // 定义一个空的map
 def map2 = [:]
 ```
 查找元素
-```shell
+```groovy
 println(map.get('name'))
 println(map.get('sex')) // print null
 println(map['fuck']) // print nulll
@@ -163,7 +162,7 @@ println(map.get('sex')) // print true
 map.remove('name') // 删除元素
 ```
 遍历Map
-```shell
+```groovy
 def map = ['name':"Hellojukay", 'age':18]
 for(e in map){
     printf("key=%s, value=%s\n",e.key,e.value)
@@ -172,14 +171,14 @@ for(e in map){
 
 # 使用range迭代
 使用 .. 可以是快速的产一个一个序列,从i到j,如果i==j，那么会产生一个长度为1的列表
-```shell
+```groovy
 def range=1..100
 for(i in range){
     println(i)
 }
 ```
 range是可以转化成数组或者list的
-```shell
+```groovy
 def range=1..1
 for(i in range){
     println(i)
@@ -192,7 +191,29 @@ list.add("hello")
 println(list)
 ```
 所以一般可以使用下面的方法来快速的生成数组或者list.
-```shell
+```groovy
 println((1..3).toArray())
 println((1..3).toList())
+```
+
+定义函数
+```groovy
+def fn(){
+    println("Hello World")
+}
+```
+
+缺省参数
+```groovy
+def fn(name="hellojukay") {
+    println(name)
+}
+fn()
+```
+明名参数
+```groovy
+def fn(String name){
+    println(name)
+}
+fn(name="hellojukay")
 ```
